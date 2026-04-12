@@ -9,10 +9,10 @@ IDENTIFICATION DIVISION.
        
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
-           |* On effectue le calcul
+           *> On effectue le calcul
            COMPUTE WS-RESULTAT = WS-NOMBRE-1 + WS-NOMBRE-2.
            
-           |* On affiche le résultat de façon élégante
+           *> On affiche le résultat de façon élégante
            DISPLAY WS-NOMBRE-1 " + " WS-NOMBRE-2 " = " WS-RESULTAT.
            
            STOP RUN.
