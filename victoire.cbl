@@ -4,19 +4,19 @@ IDENTIFICATION DIVISION.
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01 WS-NOM       PIC X(20).
-       01 WS-NOMBRE-1  PIC 9(2).
-       01 WS-NOMBRE-2  PIC 9(2).
-       01 WS-RESULTAT  PIC 9(2).
+       01 WS-NOMBRE-1  PIC 9(8)V99.
+       01 WS-NOMBRE-2  PIC 9(8)V99.
+       01 WS-RESULTAT  PIC 9(10)V99.
        
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
            *> Demande le nom de l'utilisateur
            DISPLAY "Entrez votre nom: ".
            ACCEPT WS-NOM.
-           
+
            *> Affiche un message de salutation
-           DISPLAY "Bonjour " WS-NOM "!".
-           
+           DISPLAY "Bonjour " FUNCTION TRIM(WS-NOM) "!".
+
            *> Demande à l'utilisateur d'entrer deux nombres
            DISPLAY "Entrez le premier nombre (0-99): ".
            ACCEPT WS-NOMBRE-1.
