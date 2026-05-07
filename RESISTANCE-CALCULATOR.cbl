@@ -3,11 +3,12 @@ IDENTIFICATION DIVISION.
        
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01 WS-CODE-ACCES PIC X(4).
-       01 WS-NOM       PIC X(20).
-       01 WS-NOMBRE-1  PIC 9(8)V99.
-       01 WS-NOMBRE-2  PIC 9(8)V99.
-       01 WS-RESULTAT  PIC 9(10)V99.
+       01 WS-CODE-ACCES     PIC X(4).
+       01 WS-NOM            PIC X(20).
+       01 WS-NOMBRE-1       PIC 9(8)V99.
+       01 WS-NOMBRE-2       PIC 9(8)V99.
+       01 WS-RESULTAT       PIC 9(10)V99.
+       01 WS-CHOIX-CONTINUER PIC X VALUE 'O'.
        
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
@@ -23,6 +24,11 @@ IDENTIFICATION DIVISION.
                STOP RUN
            END-IF.
 
+           PERFORM CALCUL-RESISTANCE UNTIL WS-CHOIX-CONTINUER = 'N' OR WS-CHOIX-CONTINUER = 'n'.
+
+           STOP RUN.
+
+       CALCUL-RESISTANCE.
            *> Demande le nom de l'utilisateur
            DISPLAY "IDENTIFICATION REQUISE... ENTRER NOM D'UTILISATEUR: ".
            ACCEPT WS-NOM.
@@ -47,5 +53,6 @@ IDENTIFICATION DIVISION.
            IF WS-RESULTAT > 1000000 THEN
                DISPLAY "ALERTE : SURCHARGE DU SYSTÈME !"
            END-IF.
-           
-           STOP RUN.
+
+           DISPLAY "SOUHAITEZ-VOUS EFFECTUER UNE AUTRE OPÉRATION ? (O/N) :".
+           ACCEPT WS-CHOIX-CONTINUER.
