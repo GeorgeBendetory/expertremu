@@ -3,6 +3,7 @@ IDENTIFICATION DIVISION.
        
        DATA DIVISION.
        WORKING-STORAGE SECTION.
+       01 WS-CODE-ACCES PIC X(4).
        01 WS-NOM       PIC X(20).
        01 WS-NOMBRE-1  PIC 9(8)V99.
        01 WS-NOMBRE-2  PIC 9(8)V99.
@@ -10,6 +11,18 @@ IDENTIFICATION DIVISION.
        
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
+           DISPLAY "--- SYSTEME DE LA RESISTANCE ---".
+
+           DISPLAY "ENTRER CODE D'ACCES RÉSEAU :".
+           ACCEPT WS-CODE-ACCES.
+
+           IF WS-CODE-ACCES = "2026" THEN
+               DISPLAY "IDENTITÉ CONFIRMÉE. ACCÈS AUTORISÉ."
+           ELSE
+               DISPLAY "CODE INCORRECT. VERROUILLAGE DU TERMINAL."
+               STOP RUN
+           END-IF.
+
            *> Demande le nom de l'utilisateur
            DISPLAY "IDENTIFICATION REQUISE... ENTRER NOM D'UTILISATEUR: ".
            ACCEPT WS-NOM.
