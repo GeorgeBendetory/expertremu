@@ -17,16 +17,19 @@ IDENTIFICATION DIVISION.
            *> Affiche un message de salutation
            DISPLAY "Bonjour " FUNCTION TRIM(WS-NOM) "!".
 
-           *> Demande à l'utilisateur d'entrer deux nombres
+           *> Demande a l'utilisateur d'entrer deux nombres
            DISPLAY "Entrez le premier nombre (0-99): ".
            ACCEPT WS-NOMBRE-1.
-           DISPLAY "Entrez le deuxième nombre (0-99): ".
+           DISPLAY "Entrez le deuxieme nombre (0-99): ".
            ACCEPT WS-NOMBRE-2.
            
            *> Effectue le calcul
            COMPUTE WS-RESULTAT = WS-NOMBRE-1 + WS-NOMBRE-2.
            
-           *> Affiche le résultat
+           *> Affiche le resultat
            DISPLAY WS-NOMBRE-1 " + " WS-NOMBRE-2 " = " WS-RESULTAT.
+           
+           *> Message de fin de programme
+           DISPLAY "Programme termine. Merci de votre utilisation."
            
            STOP RUN.
